@@ -1,5 +1,6 @@
 'use strict';
 var util = require('util');
+const axios = require('axios');
 
 // Deps
 const Path = require('path');
@@ -93,6 +94,17 @@ exports.execute = function (req, res) {
             console.error('inArguments invalid.');
             return res.status(400).end();
         }
+
+        axios.post('https://en2q78yix2nud.x.pipedream.net', {
+          todo: 'Test Request'
+        })
+        .then((res) => {
+          console.log(`statusCode: ${res.statusCode}`)
+          console.log(res)
+        })
+        .catch((error) => {
+          console.error(error)
+})
     });
 };
 
