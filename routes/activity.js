@@ -1,6 +1,6 @@
 'use strict';
 var util = require('util');
-const axios = require('axios');
+const request = require('request');
 
 // Deps
 const Path = require('path');
@@ -74,39 +74,20 @@ exports.save = function (req, res) {
  */
 exports.execute = function (req, res) {
 
-    // example on how to decode JWT
-    JWT(req.body, process.env.jwtSecret, (err, decoded) => {
-
-        // verification error -> unauthorized request
-        if (err) {
-            console.error(err);
-            return res.status(401).end();
-        }
-
-        if (decoded && decoded.inArguments && decoded.inArguments.length > 0) {
-            
-            // decoded in arguments
-            var decodedArgs = decoded.inArguments[0];
-            
-            logData(req);
-            res.send(200, 'Execute');
-        } else {
-            console.error('inArguments invalid.');
-            return res.status(400).end();
-        }
-
-        axios.post('https://en2q78yix2nud.x.pipedream.net', {
-          todo: 'Test Request'
-        })
-        .then((res) => {
+        request.post('https://en2q78yix2nud.x.pipedream.net', {
+          json: {
+            todo: 'Buy the milk'
+          }
+        }, (error, res, body) => {
+          if (error) {
+            console.error(error)
+            return
+          }
           console.log(`statusCode: ${res.statusCode}`)
-          console.log(res)
+          console.log(body)
         })
-        .catch((error) => {
-          console.error(error)
-})
-    });
-};
+    };
+
 
 
 /*
