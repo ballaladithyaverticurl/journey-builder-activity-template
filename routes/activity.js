@@ -78,7 +78,7 @@ exports.execute = function (req, res) {
         /*var request = require('request');
         request.post('https://en2q78yix2nud.x.pipedream.net', {
           json: {
-            todo: 'Buy the milk'
+            Access Token is : 'Buy the milk'
           }
         }, (error, res, body) => {
           if (error) {
@@ -89,7 +89,7 @@ exports.execute = function (req, res) {
           console.log(body)
         })*/
 
-        var default_headers, site_root = 'https://login.salesforce.com/services';
+        var accessToken, default_headers, site_root = 'https://login.salesforce.com/services';
         var request = require('request');
 
         default_headers = {
@@ -114,11 +114,24 @@ exports.execute = function (req, res) {
           }
       }, function(err, res, body) {
           if (!err && res.statusCode == 200) {
-              //console.log(body.access_token);
-              console.log(body);
+              accessToken = body.access_token;
+              
           } else {
           }
       });
+
+      request.post('https://en2q78yix2nud.x.pipedream.net', {
+          json: {
+            Access_Token_is : accessToken
+          }
+        }, (error, res, body) => {
+          if (error) {
+            console.error(error)
+            return
+          }
+          console.log(`statusCode: ${res.statusCode}`)
+          console.log(body)
+        })
     };
 
 
