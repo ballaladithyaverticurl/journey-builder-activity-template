@@ -74,7 +74,8 @@ exports.save = function (req, res) {
  */
 exports.execute = function (req, res) {
 
-        var request = require('request');
+        // Debug post requests to requestbin
+        /*var request = require('request');
         request.post('https://en2q78yix2nud.x.pipedream.net', {
           json: {
             todo: 'Buy the milk'
@@ -86,7 +87,36 @@ exports.execute = function (req, res) {
           }
           console.log(`statusCode: ${res.statusCode}`)
           console.log(body)
-        })
+        })*/
+
+        var default_headers, site_root = 'https://login.salesforce.com/services';
+
+        default_headers = {
+          'User-Agent': 'Mozilla/5.0 (X11; Linux i686; rv:7.0.1) Gecko/20100101 Firefox/7.0.1',
+          'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+          'Accept-Language': 'en-us,en;q=0.5',
+          'Accept-Encoding': 'gzip, deflate',
+          'Accept-Charset': 'ISO-8859-1,utf-8;q=0.7,*;q=0.7',
+          // 'Connection': 'keep-alive',
+          'Cache-Control': 'max-age=0'
+      };
+      request({
+          url: site_root + '/oauth2/token',
+          headers: default_headers,
+          method: 'POST',
+          json: {
+              grant_type: 'password',
+              client_id: clientID,
+              client_secret: clientSecret,
+              username: username,
+              password: password
+          }
+      }, function(err, res, body) {
+          if (!err && res.statusCode == 200) {
+              console.log(body.access_token);
+          } else {
+          }
+      });
     };
 
 
