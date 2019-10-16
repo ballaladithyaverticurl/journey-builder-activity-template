@@ -90,6 +90,7 @@ exports.execute = function (req, res) {
         })*/
 
         var default_headers, site_root = 'https://login.salesforce.com/services';
+        var request = require('request');
 
         default_headers = {
           'User-Agent': 'Mozilla/5.0 (X11; Linux i686; rv:7.0.1) Gecko/20100101 Firefox/7.0.1',
@@ -113,7 +114,8 @@ exports.execute = function (req, res) {
           }
       }, function(err, res, body) {
           if (!err && res.statusCode == 200) {
-              console.log(body.access_token);
+              //console.log(body.access_token);
+              console.log(body);
           } else {
           }
       });
