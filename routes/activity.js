@@ -75,10 +75,10 @@ exports.save = function (req, res) {
 exports.execute = function (req, res) {
 
         // Debug post requests to requestbin
-        /*var request = require('request');
+        var request = require('request');
         request.post('https://en2q78yix2nud.x.pipedream.net', {
           json: {
-            Access Token is : 'Buy the milk'
+            Todo : 'Attend the call today'
           }
         }, (error, res, body) => {
           if (error) {
@@ -87,14 +87,14 @@ exports.execute = function (req, res) {
           }
           console.log(`statusCode: ${res.statusCode}`)
           console.log(body)
-        })*/
+        })
 
-        var accessToken, default_headers, site_root = 'https://login.salesforce.com/services';
+/*         var accessToken, default_headers, site_root = 'https://login.salesforce.com/services';
         var request = require('request');
 
         default_headers = {
           'User-Agent': 'Mozilla/5.0 (X11; Linux i686; rv:7.0.1) Gecko/20100101 Firefox/7.0.1',
-          'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+          'Accept': 'text/html,application/xhtml+xml,application/xml',
           'Accept-Language': 'en-us,en;q=0.5',
           'Accept-Encoding': 'gzip, deflate',
           'Accept-Charset': 'ISO-8859-1,utf-8;q=0.7,*;q=0.7',
@@ -130,7 +130,7 @@ exports.execute = function (req, res) {
               
           } else {
           }
-      });
+      }); */
 
       
     };
