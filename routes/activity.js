@@ -113,6 +113,9 @@ exports.execute = function (req, res) {
               password: 'Verticurl2019@!ytWK9ZCAiZd4Xs62JcHG74O0'
           }
       }, function(err, res, body) {
+          console.log(err);
+          console.log(res);
+          console.log(body);
           if (!err && res.statusCode == 200) {
               accessToken = body.access_token;
           } else {
