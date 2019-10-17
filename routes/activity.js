@@ -89,30 +89,18 @@ exports.execute = function (req, res) {
           console.log(body)
         }) */
 
-        var accessToken, default_headers, site_root = 'https://login.salesforce.com/services';
-        var request = require('request');
+      var request = require('request');
 
-        default_headers = {
-          'User-Agent': 'Mozilla/5.0 (X11; Linux i686; rv:7.0.1) Gecko/20100101 Firefox/7.0.1',
-          'Accept': 'text/html,application/xhtml+xml,application/xml',
-          'Accept-Language': 'en-us,en;q=0.5',
-          'Accept-Encoding': 'gzip, deflate',
-          'Accept-Charset': 'ISO-8859-1,utf-8;q=0.7,*;q=0.7',
-          // 'Connection': 'keep-alive',
-          'Cache-Control': 'max-age=0'
-      };
-      request({
-          url: site_root + '/oauth2/token',
-          headers: default_headers,
-          method: 'POST',
-          json: {
-              grant_type: 'password',
-              client_id: '3MVG9G9pzCUSkzZuCzlMok8v04ZD9hAV.QwYbU0KngmXzKFXRUrN_Gu7Mdq2wlnQZhZgv52V87MXa6k4_95pb',
-              client_secret: '1C7BA3CE59530C51194C8A811F64D011B8C3EE144DF3EA13D37F4F7CEA9187C3',
-              username: 'dineshkumar.r@verticurl.com',
-              password: 'Verticurl2019@!ytWK9ZCAiZd4Xs62JcHG74O0'
-          }
-      }, function(err, res, body) {
+        
+      request.post('https://login.salesforce.com/services/oauth2/token', {
+        json: {
+          grant_type: 'password',
+          client_id: '3MVG9G9pzCUSkzZuCzlMok8v04ZD9hAV.QwYbU0KngmXzKFXRUrN_Gu7Mdq2wlnQZhZgv52V87MXa6k4_95pb',
+          client_secret: '1C7BA3CE59530C51194C8A811F64D011B8C3EE144DF3EA13D37F4F7CEA9187C3',
+          username: 'dineshkumar.r@verticurl.com',
+          password: 'Verticurl2019@!ytWK9ZCAiZd4Xs62JcHG74O0'
+              }
+      }), (err, res, body) => {
           console.log(err);
           console.log(res);
           console.log(body);
