@@ -103,7 +103,7 @@ exports.execute = function (req, res) {
         url: "https://login.salesforce.com/services/oauth2/token",
         headers: {'Content-Type': 'application/json'},
         method: "POST",
-        body: JSON.stringify(requestData)
+        json: requestData
       }, function(err, res, body) {
           console.log(err);
           console.log(res);
