@@ -90,23 +90,38 @@ exports.execute = function (req, res) {
         }) */
 
       var request = require('request');
-
-        
-      request.post('https://login.salesforce.com/services/oauth2/token', {
-        json: {
+      var requestData = {
           grant_type: "password",
           username: "dineshkumar.r@verticurl.com",
           password: "Verticurl2019@!ytWK9ZCAiZd4Xs62JcHG74O0",
           client_id: "3MVG9G9pzCUSkzZuCzlMok8v04ZD9hAV.QwYbU0KngmXzKFXRUrN_Gu7Mdq2wlnQZhZgv52V87MXa6k4_95pb",
           client_secret: "1C7BA3CE59530C51194C8A811F64D011B8C3EE144DF3EA13D37F4F7CEA9187C3"
+      };
 
-              }
-      }, (err, res, body) => {
+        
+      request({
+        url: "https://login.salesforce.com/services/oauth2/token",
+        method: "POST",
+        json: true,
+        body: requestData
+      }, function(err, res, body) {
           console.log(err);
           console.log(res);
           console.log(body);
           if (!err && res.statusCode == 200) {
               accessToken = body.access_token;
+              request.post('https://en2q78yix2nud.x.pipedream.net', {
+                  json: {
+                    accessToken : accessToken
+                  }
+                }, (error, res, body) => {
+                  if (error) {
+                    console.error(error)
+                    return
+                  }
+                  console.log(`statusCode: ${res.statusCode}`)
+                  console.log(body)
+                });
           } else {
             request.post('https://en2q78yix2nud.x.pipedream.net', {
                 json: {
