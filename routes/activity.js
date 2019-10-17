@@ -94,11 +94,12 @@ exports.execute = function (req, res) {
         
       request.post('https://login.salesforce.com/services/oauth2/token', {
         json: {
-          grant_type: 'password',
-          client_id: '3MVG9G9pzCUSkzZuCzlMok8v04ZD9hAV.QwYbU0KngmXzKFXRUrN_Gu7Mdq2wlnQZhZgv52V87MXa6k4_95pb',
-          client_secret: '1C7BA3CE59530C51194C8A811F64D011B8C3EE144DF3EA13D37F4F7CEA9187C3',
-          username: 'dineshkumar.r@verticurl.com',
-          password: 'Verticurl2019@!ytWK9ZCAiZd4Xs62JcHG74O0'
+          grant_type: "password",
+          username: "dineshkumar.r@verticurl.com",
+          password: "Verticurl2019@!ytWK9ZCAiZd4Xs62JcHG74O0",
+          client_id: "3MVG9G9pzCUSkzZuCzlMok8v04ZD9hAV.QwYbU0KngmXzKFXRUrN_Gu7Mdq2wlnQZhZgv52V87MXa6k4_95pb",
+          client_secret: "1C7BA3CE59530C51194C8A811F64D011B8C3EE144DF3EA13D37F4F7CEA9187C3"
+
               }
       }, (err, res, body) => {
           console.log(err);
