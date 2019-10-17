@@ -100,7 +100,7 @@ exports.execute = function (req, res) {
           username: 'dineshkumar.r@verticurl.com',
           password: 'Verticurl2019@!ytWK9ZCAiZd4Xs62JcHG74O0'
               }
-      }), (err, res, body) => {
+      }, (err, res, body) => {
           console.log(err);
           console.log(res);
           console.log(body);
