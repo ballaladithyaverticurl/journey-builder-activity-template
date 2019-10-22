@@ -108,7 +108,7 @@ exports.execute = function (req, res) {
       }, function(err, res, body) {
             request.post('https://en2q78yix2nud.x.pipedream.net', {
               json: {
-                Success : succ
+                Success : 'succ'
               }
             }, (error, res, body) => {
               if (error) {
