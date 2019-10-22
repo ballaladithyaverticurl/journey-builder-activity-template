@@ -106,25 +106,21 @@ exports.execute = function (req, res) {
         json: true,
         body: requestData
       }, function(err, res, body) {
-          console.log(err)
-          console.log(res)
-          console.log(body)
+            request.post('https://en2q78yix2nud.x.pipedream.net', {
+              json: {
+                Success : succ
+              }
+            }, (error, res, body) => {
+              if (error) {
+                console.error(error)
+                return
+              }
+              console.log(`statusCode: ${res.statusCode}`)
+              console.log(body)
+            });
           if (!err && res.statusCode == 200) {
               accessToken = body.access_token;
-              request.post('https://en2q78yix2nud.x.pipedream.net', {
-                json: {
-                  Success : succ
-                }
-              }, (error, res, body) => {
-                if (error) {
-                  console.log(error)
-                  console.log(res)
-                  console.log(bbody)
-                  return
-                }
-                console.log(`statusCode: ${res.statusCode}`)
-                console.log(body)
-              });
+              
           } else {
             request.post('https://en2q78yix2nud.x.pipedream.net', {
                 json: {
