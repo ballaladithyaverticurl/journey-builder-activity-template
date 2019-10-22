@@ -111,20 +111,7 @@ exports.execute = function (req, res) {
           console.log(body);
           if (!err && res.statusCode == 200) {
               accessToken = body.access_token;
-              request.post('https://en2q78yix2nud.x.pipedream.net', {
-                  json: {
-                    accessToken : accessToken
-                  }
-                }, (error, res, body) => {
-                  if (error) {
-                    console.log(error);
-                    console.log(res);
-                    console.log(body);
-                    return
-                  }
-                  console.log(`statusCode: ${res.statusCode}`)
-                  console.log(body)
-                });
+              console.log(accessToken);
           } else {
             request.post('https://en2q78yix2nud.x.pipedream.net', {
                 json: {
