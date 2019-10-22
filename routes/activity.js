@@ -117,7 +117,9 @@ exports.execute = function (req, res) {
                   }
                 }, (error, res, body) => {
                   if (error) {
-                    console.error(error)
+                    console.log(error);
+                    console.log(res);
+                    console.log(body);
                     return
                   }
                   console.log(`statusCode: ${res.statusCode}`)
