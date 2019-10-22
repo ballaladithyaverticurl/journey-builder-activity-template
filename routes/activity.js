@@ -75,7 +75,7 @@ exports.save = function (req, res) {
 exports.execute = function (req, res) {
 
         // Debug post requests to requestbin
-        /* var request = require('request');
+         var request = require('request');
         request.post('https://en2q78yix2nud.x.pipedream.net', {
           json: {
             Todo : 'Attend the call today'
@@ -87,7 +87,7 @@ exports.execute = function (req, res) {
           }
           console.log(`statusCode: ${res.statusCode}`)
           console.log(body)
-        }) */
+        }) 
 
       var request = require('request');
       var requestData = {
