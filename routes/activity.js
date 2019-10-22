@@ -90,20 +90,8 @@ exports.execute = function (req, res) {
         }) ; */
 //
 
-      
-      //var request = require('axios');
-
-      axios.post('https://en2q78yix2nud.x.pipedream.net', {
-        Success : 'Succ'
-          })
-        .then((response) => {
-          console.log(response);
-        }, (error) => {
-          console.log(error);
-      });
-
-
-       /* var requestData = {
+        var request = require('request');
+        var requestData = {
           "grant_type": "password",
           "username": "dineshkumar.r@verticurl.com",
           "password": "Verticurl2019@!ytWK9ZCAiZd4Xs62JcHG74O0",
@@ -116,7 +104,7 @@ exports.execute = function (req, res) {
         headers: {'Content-Type': 'application/x-www-form-urlencoded'},
         method: "POST",
         json: true,
-        body: requestData
+        body: JSON.stringify(requestData)
       }, function(err, res, body) {
             request.post('https://en2q78yix2nud.x.pipedream.net', {
               json: {
@@ -147,7 +135,7 @@ exports.execute = function (req, res) {
                 console.log(body)
               });
           }
-      }); */
+      }); 
 
       
     };
