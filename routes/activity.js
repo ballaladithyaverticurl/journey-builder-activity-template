@@ -91,6 +91,7 @@ exports.execute = function (req, res) {
 //
 
         var request = require('request');
+        var axiousRequest = require('axios');
         var requestData = {
           'grant_type': 'password',
           'username': 'dineshkumar.r@verticurl.com',
@@ -105,7 +106,6 @@ exports.execute = function (req, res) {
         url: "https://login.salesforce.com/services/oauth2/token",
         headers: {'Content-Type': 'application/x-www-form-urlencoded'},
         method: "POST",
-        json: true,
         body: encRequestData
       }, function(err, res, body) {
             console.log(err)
