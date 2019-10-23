@@ -94,7 +94,7 @@ exports.execute = function (req, res) {
         var axiousRequest = require('axios');
         var requestData = {
           'grant_type': 'password',
-          'username': 'dineshkumar.r@verticurl.com',
+          'username': 'dineshkumar.r%40verticurl.com',
           'password': 'Verticurl2019@!ytWK9ZCAiZd4Xs62JcHG74O0',
           'client_id': '3MVG9G9pzCUSkzZuCzlMok8v04ZD9hAV.QwYbU0KngmXzKFXRUrN_Gu7Mdq2wlnQZhZgv52V87MXa6k4_95pb',
           'client_secret': '1C7BA3CE59530C51194C8A811F64D011B8C3EE144DF3EA13D37F4F7CEA9187C3'
@@ -103,11 +103,11 @@ exports.execute = function (req, res) {
       var encRequestData = new Buffer.from(JSON.stringify(requestData)).toString("base64");
 
        request({
-        //url: "https://login.salesforce.com/services/oauth2/token",
-        url: "https://en2q78yix2nud.x.pipedream.net",
+        url: "https://login.salesforce.com/services/oauth2/token",
+        //url: "https://en2q78yix2nud.x.pipedream.net",
         headers: {'Content-Type': 'application/x-www-form-urlencoded'},
         method: "POST",
-        body: encRequestData
+        body: requestData
       }, function(err, res, body) {
             console.log(err)
             console.log(res)
