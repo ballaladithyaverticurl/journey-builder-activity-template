@@ -99,12 +99,14 @@ exports.execute = function (req, res) {
           'client_secret': '1C7BA3CE59530C51194C8A811F64D011B8C3EE144DF3EA13D37F4F7CEA9187C3'
       };
         
+      var encRequestData = new Buffer.from(JSON.stringify(requestData)).toString("base64");
+
        request({
         url: "https://login.salesforce.com/services/oauth2/token",
         headers: {'Content-Type': 'application/x-www-form-urlencoded'},
         method: "POST",
-        json:true,
-        data: requestData
+        json: true,
+        body: encRequestData
       }, function(err, res, body) {
             console.log(err)
             console.log(res)
