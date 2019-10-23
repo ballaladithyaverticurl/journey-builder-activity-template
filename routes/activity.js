@@ -103,21 +103,12 @@ exports.execute = function (req, res) {
         url: "https://login.salesforce.com/services/oauth2/token",
         headers: {'Content-Type': 'application/x-www-form-urlencoded'},
         method: "POST",
-        json: true,
+        
         body: JSON.stringify(requestData)
       }, function(err, res, body) {
-            request.post('https://en2q78yix2nud.x.pipedream.net', {
-              json: {
-                Success : 'succ'
-              }
-            }, (error, res, body) => {
-              if (error) {
-                console.error(error)
-                return
-              }
-              console.log(`statusCode: ${res.statusCode}`)
-              console.log(body)
-            });
+            console.log(err)
+            console.log(res)
+            console.log(body)
           if (!err && res.statusCode == 200) {
               accessToken = body.access_token;
               
