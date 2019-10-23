@@ -90,52 +90,34 @@ exports.execute = function (req, res) {
         }) ; */
 //
 
-        var request = require('request');
-        /* var requestData = {
+        //var request = require('axios');
+        const axios = require('axios').default;
+        const qs = require('qs');
+        var requestData = {
           'grant_type': 'password',
-          'username': 'dineshkumar.r%40verticurl.com',
+          'username': 'dineshkumar.r@verticurl.com',
           'password': 'Verticurl2019@!ytWK9ZCAiZd4Xs62JcHG74O0',
           'client_id': '3MVG9G9pzCUSkzZuCzlMok8v04ZD9hAV.QwYbU0KngmXzKFXRUrN_Gu7Mdq2wlnQZhZgv52V87MXa6k4_95pb',
           'client_secret': '1C7BA3CE59530C51194C8A811F64D011B8C3EE144DF3EA13D37F4F7CEA9187C3'
-      }; */
+      }; 
         
       //var encRequestData = new Buffer.from(JSON.stringify(requestData)).toString("base64");
 
-       request({
-        url: "https://login.salesforce.com/services/oauth2/token",
-        //url: "https://en2q78yix2nud.x.pipedream.net",
+      var encRequestData = qs.stringify(requestData);
+      
+      axios({
+        method: 'post',
+        url: 'https://en2q78yix2nud.x.pipedream.net',
         headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-        method: "POST",
-        json: true,
-        body: {
-          'grant_type': 'password',
-          'username': 'dineshkumar.r%40verticurl.com',
-          'password': 'Verticurl2019@!ytWK9ZCAiZd4Xs62JcHG74O0',
-          'client_id': '3MVG9G9pzCUSkzZuCzlMok8v04ZD9hAV.QwYbU0KngmXzKFXRUrN_Gu7Mdq2wlnQZhZgv52V87MXa6k4_95pb',
-          'client_secret': '1C7BA3CE59530C51194C8A811F64D011B8C3EE144DF3EA13D37F4F7CEA9187C3'
-      }
-      }, function(err, res, body) {
-            console.log(err)
-            console.log(res)
-            console.log(body)
-          if (!err && res.statusCode == 200) {
-              accessToken = body.access_token;
-              
-          } else {
-            request.post('https://en2q78yix2nud.x.pipedream.net', {
-                json: {
-                  Error : err
-                }
-              }, (error, res, body) => {
-                if (error) {
-                  console.error(error)
-                  return
-                }
-                console.log(`statusCode: ${res.statusCode}`)
-                console.log(body)
-              });
-          }
-      }); 
+        data: encRequestData
+          })
+          .then(function (response){
+            console.log(response);
+          })
+          .catch(function(error){
+            console.log(error);
+      });
+       
 
       
     };
