@@ -90,7 +90,7 @@ exports.execute = function (req, res) {
         }) ; */
 //
 
-        //var request = require('request');
+        var request = require('request');
         var requestData = {
           'grant_type': 'password',
           'username': 'dineshkumar.r@verticurl.com',
