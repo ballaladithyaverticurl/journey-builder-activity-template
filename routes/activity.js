@@ -100,10 +100,9 @@ exports.execute = function (req, res) {
           'client_id': '3MVG9G9pzCUSkzZuCzlMok8v04ZD9hAV.QwYbU0KngmXzKFXRUrN_Gu7Mdq2wlnQZhZgv52V87MXa6k4_95pb',
           'client_secret': '1C7BA3CE59530C51194C8A811F64D011B8C3EE144DF3EA13D37F4F7CEA9187C3'
       }; 
-        
-      //var encRequestData = new Buffer.from(JSON.stringify(requestData)).toString("base64");
-
+     
       var encRequestData = qs.stringify(requestData);
+      var accessToken1, accessToken2;
 
       axios({
         method: 'post',
@@ -112,7 +111,11 @@ exports.execute = function (req, res) {
         data: encRequestData
           })
           .then(function (response){
-            console.log(response);
+            //console.log(response);
+            //accessToken1 = data.access_token;
+            accessToken2 = response.data.access_token;
+            //console.log(accessToken1);
+            console.log(accessToken2);
           })
           .catch(function(error){
             console.log(error);
