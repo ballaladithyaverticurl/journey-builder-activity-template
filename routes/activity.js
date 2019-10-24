@@ -7,6 +7,8 @@ const Path = require('path');
 const JWT = require(Path.join(__dirname, '..', 'lib', 'jwtDecoder.js'));
 var util = require('util');
 var http = require('https');
+const axios = require('axios').default;
+const qs = require('qs');
 
 exports.logExecuteData = [];
 
@@ -74,35 +76,16 @@ exports.save = function (req, res) {
  */
 exports.execute = function (req, res) {
 
-        // Debug post requests to requestbin
-/*          var request = require('request');
-        request.post('https://en2q78yix2nud.x.pipedream.net', {
-          json: {
-            Todo : 'Attend the call today'
-          }
-        }, (error, res, body) => {
-          if (error) {
-            console.error(error)
-            return
-          }
-          console.log(`statusCode: ${res.statusCode}`)
-          console.log(body)
-        }) ; */
-//
-
-        //var request = require('axios');
-        const axios = require('axios').default;
-        const qs = require('qs');
         var requestData = {
           'grant_type': 'password',
-          'username': 'dineshkumar.r@verticurl.com',
-          'password': 'Verticurl2019@!ytWK9ZCAiZd4Xs62JcHG74O0',
-          'client_id': '3MVG9G9pzCUSkzZuCzlMok8v04ZD9hAV.QwYbU0KngmXzKFXRUrN_Gu7Mdq2wlnQZhZgv52V87MXa6k4_95pb',
-          'client_secret': '1C7BA3CE59530C51194C8A811F64D011B8C3EE144DF3EA13D37F4F7CEA9187C3'
+          'username': process.env.username,
+          'password': process.env.password,
+          'client_id': process.env.clientID,
+          'client_secret': process.env.clientSecret
       }; 
      
       var encRequestData = qs.stringify(requestData);
-      var accessToken1, accessToken2;
+      var accessToken;
 
       axios({
         method: 'post',
@@ -111,18 +94,15 @@ exports.execute = function (req, res) {
         data: encRequestData
           })
           .then(function (response){
-            //console.log(response);
-            //accessToken1 = data.access_token;
-            accessToken2 = response.data.access_token;
-            //console.log(accessToken1);
-            console.log(accessToken2);
+            accessToken = response.data.access_token;
+            console.log(response);
+            console.log(accessToken);
           })
           .catch(function(error){
             console.log(error);
       });
-       
 
-      
+
     };
 
 
