@@ -95,6 +95,7 @@ exports.execute = function (req, res) {
           })
           .then(function (response){
             accessToken = response.data.access_token;
+            return accessToken;
           })
           .catch(function(error){
             console.log(error);
