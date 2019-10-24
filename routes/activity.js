@@ -95,14 +95,12 @@ exports.execute = function (req, res) {
           })
           .then(function (response){
             accessToken = response.data.access_token;
-            console.log(response);
-            console.log(accessToken);
           })
           .catch(function(error){
             console.log(error);
       });
 
-
+      console.log(accessToken);
     };
 
 
