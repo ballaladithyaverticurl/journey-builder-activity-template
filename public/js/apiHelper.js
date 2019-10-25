@@ -1,7 +1,5 @@
 'use strict';
 
-import { resolve } from 'path';
-import { rejects } from 'assert';
 
 const axios = require('axios').default;
 const qs = require('qs');
