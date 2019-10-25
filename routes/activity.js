@@ -9,7 +9,7 @@ var util = require('util');
 var http = require('https');
 const axios = require('axios').default;
 const qs = require('qs');
-require('./public/js/apiHelper.js')();
+var gat = require('../public/js/apiHelper.js');
 
 exports.logExecuteData = [];
 
