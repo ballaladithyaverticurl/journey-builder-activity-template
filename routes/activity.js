@@ -79,7 +79,7 @@ exports.execute = function (req, res) {
 
     async function go() {
       try{
-      const accessToken = await getAccessToken();
+      const accessToken = await gat.getAccessToken();
       console.log(accessToken);
       } catch (e){
         console.log(e);
