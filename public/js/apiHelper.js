@@ -6,9 +6,8 @@ import { rejects } from 'assert';
 const axios = require('axios').default;
 const qs = require('qs');
 
-export default class apiHelper
-{
-    function getAccessToken()
+
+    module.exports = function getAccessToken()
     {
         var requestData = {
             'grant_type': 'password',
@@ -38,4 +37,3 @@ export default class apiHelper
               });
         })
     }
-}
