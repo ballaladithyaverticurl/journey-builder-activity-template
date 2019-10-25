@@ -9,6 +9,7 @@ var util = require('util');
 var http = require('https');
 const axios = require('axios').default;
 const qs = require('qs');
+import apiHelper from './js/apiHelper.js'
 
 exports.logExecuteData = [];
 
@@ -78,15 +79,15 @@ exports.execute = function (req, res) {
 
     async function go() {
       try{
-      const accessToken = await getAccessToken();
+      const accessToken = await apiHelper.getAccessToken();
       console.log(accessToken);
       } catch (e){
         console.log(e);
       }
     }
-    
-    };
     go(); 
+    };
+    
 
 
 
