@@ -76,33 +76,17 @@ exports.save = function (req, res) {
  */
 exports.execute = function (req, res) {
 
-        var requestData = {
-          'grant_type': 'password',
-          'username': process.env.username,
-          'password': process.env.password,
-          'client_id': process.env.clientID,
-          'client_secret': process.env.clientSecret
-      }; 
-     
-      var encRequestData = qs.stringify(requestData);
-      var accessToken;
-
-      axios({
-        method: 'post',
-        url: 'https://login.salesforce.com/services/oauth2/token',
-        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-        data: encRequestData
-          })
-          .then(function (response){
-            accessToken = response.data.access_token;
-            return accessToken;
-          })
-          .catch(function(error){
-            console.log(error);
-      });
-
+    async function go() {
+      try{
+      const accessToken = getAccessToken();
       console.log(accessToken);
+      } catch (e){
+        console.log(e);
+      }
+    }
+    
     };
+    go(); 
 
 
 
