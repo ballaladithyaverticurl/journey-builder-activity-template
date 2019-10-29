@@ -9,7 +9,9 @@ var util = require('util');
 var http = require('https');
 const axios = require('axios').default;
 const qs = require('qs');
-var gat = require('../public/js/apiHelper.js');
+var gat = require('../public/js/apiHelper.js').default;
+import { getAccessToken } from '../public/js/apiHelper.js'
+//var gat = require(Path.join(__dirname), '..', 'public', 'js', 'apiHelper.js'));
 
 exports.logExecuteData = [];
 
@@ -79,7 +81,7 @@ exports.execute = function (req, res) {
 
     async function go() {
       try{
-      const accessToken = await gat.getAccessToken();
+      const accessToken = await getAccessToken();
       console.log(accessToken);
       } catch (e){
         console.log(e);

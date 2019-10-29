@@ -1,11 +1,11 @@
 'use strict';
 
 
-const axios = require('axios').default;
-const qs = require('qs');
+import axios from 'axios';
+import { stringify } from 'qs';
 
 
-    module.exports = function getAccessToken()
+    export default function getAccessToken()
     {
         var requestData = {
             'grant_type': 'password',
@@ -15,7 +15,7 @@ const qs = require('qs');
             'client_secret': process.env.clientSecret
         }; 
        
-        var encRequestData = qs.stringify(requestData);
+        var encRequestData = stringify(requestData);
 
         return new Promise((resolve, reject) =>
         {
@@ -34,4 +34,4 @@ const qs = require('qs');
                     console.log(error);
               });
         })
-    }
+    };
