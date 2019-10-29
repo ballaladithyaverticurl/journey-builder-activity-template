@@ -17,6 +17,7 @@ const qs = require('qs');
         }; 
        
         var encRequestData = qs.stringify(requestData);
+        var accessToken;
 
         return new Promise((resolve, reject) =>
         {
