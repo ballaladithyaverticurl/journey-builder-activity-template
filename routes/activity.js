@@ -10,7 +10,6 @@ var http = require('https');
 const axios = require('axios').default;
 const qs = require('qs');
 var functions = require('../public/js/apiHelper.js');
-//var gat = require(Path.join(__dirname), '..', 'public', 'js', 'apiHelper.js'));
 
 exports.logExecuteData = [];
 
@@ -80,10 +79,12 @@ exports.execute = function (req, res) {
 
     async function go() {
       try{
-      const accessToken = await functions.getAccessToken();
-      console.log(accessToken);
+        const accessToken = await functions.getAccessToken();
+        //console.log(accessToken);
+        var enteredData = document.getElementById('chatterComment');
+        console.log(enteredData);
       } catch (e){
-        console.log(e);
+            console.log(e);
       }
     }
     go(); 
