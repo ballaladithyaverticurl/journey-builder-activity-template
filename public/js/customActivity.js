@@ -49,8 +49,7 @@ define([
             });
         });
 
-        var enteredData = document.getElementById('chatterComment');
-        console.log(enteredData);
+
 
         connection.trigger('updateButton', {
             button: 'next',
@@ -79,6 +78,8 @@ define([
         payload['metaData'].isConfigured = true;
 
         console.log(payload);
+        var enteredData = document.getElementById('chatterComment');
+        console.log(enteredData);
         connection.trigger('updateActivity', payload);
     }
 
