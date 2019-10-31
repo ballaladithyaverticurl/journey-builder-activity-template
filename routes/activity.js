@@ -81,8 +81,7 @@ exports.execute = function (req, res) {
       try{
         const accessToken = await functions.getAccessToken();
         //console.log(accessToken);
-        var enteredData = document.getElementById('chatterComment');
-        console.log(enteredData);
+
       } catch (e){
             console.log(e);
       }

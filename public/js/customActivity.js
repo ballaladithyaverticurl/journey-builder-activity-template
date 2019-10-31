@@ -49,6 +49,9 @@ define([
             });
         });
 
+        var enteredData = document.getElementById('chatterComment');
+        console.log(enteredData);
+
         connection.trigger('updateButton', {
             button: 'next',
             text: 'done',
