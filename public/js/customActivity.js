@@ -78,7 +78,7 @@ define([
         payload['metaData'].isConfigured = true;
 
         console.log(payload);
-        var enteredData = document.getElementById('chatterComment');
+        var enteredData = document.getElementById('chatterComment').value;
         console.log(enteredData);
         connection.trigger('updateActivity', payload);
     }
