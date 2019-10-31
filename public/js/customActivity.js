@@ -8,6 +8,7 @@ define([
     var connection = new Postmonger.Session();
     var authTokens = {};
     var payload = {};
+    var enteredData;
     $(window).ready(onRender);
 
     connection.on('initActivity', initialize);
@@ -78,7 +79,7 @@ define([
         payload['metaData'].isConfigured = true;
 
         console.log(payload);
-        var enteredData = document.getElementById('chatterComment').value;
+        module.exports.enteredData = document.getElementById('chatterComment').value;
         console.log(enteredData);
         connection.trigger('updateActivity', payload);
     }
