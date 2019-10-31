@@ -8,7 +8,7 @@ define([
     var connection = new Postmonger.Session();
     var authTokens = {};
     var payload = {};
-    var enteredData;
+
     $(window).ready(onRender);
 
     connection.on('initActivity', initialize);
@@ -70,7 +70,7 @@ define([
 
     function save() {
         
-
+        var enteredData;
         payload['arguments'].execute.inArguments = [{
             "tokens": authTokens,
             "emailAddress": "{{InteractionDefaults.Email}}"
