@@ -81,7 +81,8 @@ exports.execute = function (req, res) {
       try{
         const accessToken = await functions.getAccessToken();
         //console.log(accessToken);
-
+        console.log(req);
+        console.log(res);
       } catch (e){
             console.log(e);
       }
