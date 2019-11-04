@@ -8,6 +8,7 @@ define([
     var connection = new Postmonger.Session();
     var authTokens = {};
     var payload = {};
+    var enteredData;
 
     $(window).ready(onRender);
 
@@ -70,17 +71,18 @@ define([
 
     function save() {
         
-        var enteredData;
+        enteredData = document.getElementById('chatterComment').value;
         payload['arguments'].execute.inArguments = [{
             "tokens": authTokens,
-            "emailAddress": "{{InteractionDefaults.Email}}"
+            "emailAddress": "{{InteractionDefaults.Email}}",
+            "commentData": enteredData
         }];
         
         payload['metaData'].isConfigured = true;
 
+        console.log("Payload is here");
         console.log(payload);
-        module.exports.enteredData = document.getElementById('chatterComment').value;
-        console.log(enteredData);
+        
         connection.trigger('updateActivity', payload);
     }
 

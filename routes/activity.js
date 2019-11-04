@@ -10,7 +10,7 @@ var http = require('https');
 const axios = require('axios').default;
 const qs = require('qs');
 var functions = require('../public/js/apiHelper.js');
-var commentData = require('../public/js/customActivity.js');
+
 
 exports.logExecuteData = [];
 
@@ -82,8 +82,7 @@ exports.execute = function (req, res) {
       try{
         const accessToken = await functions.getAccessToken();
         //console.log(accessToken);
-        console.log("The variable value goes here");
-        console.log(commentData.enteredData);
+
       } catch (e){
             console.log(e);
       }
