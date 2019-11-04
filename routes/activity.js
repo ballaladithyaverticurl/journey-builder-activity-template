@@ -85,8 +85,9 @@ exports.execute = function (req, res) {
         }
 
         if (decoded && decoded.inArguments && decoded.inArguments.length > 0) {
-            //var decodedArgs = decoded.inArguments[2];
-            console.log(decoded);
+            var decodedArgs = decoded.inArguments[0].commentData;
+            //console.log(decoded);
+            console.log("Comment Data is" + decodedArgs);
 
             async function go() {
             try{
