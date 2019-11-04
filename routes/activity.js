@@ -85,13 +85,14 @@ exports.execute = function (req, res) {
         }
 
         if (decoded && decoded.inArguments && decoded.inArguments.length > 0) {
-            var decodedArgs = decoded.inArguments[2];
+            //var decodedArgs = decoded.inArguments[2];
+            console.log(decoded);
 
             async function go() {
             try{
                 const accessToken = await functions.getAccessToken();
                 //console.log("Access Token is " + accessToken);
-                console.log("Decoded Args are" + decodedArgs);
+                //console.log("Decoded Args are" + decodedArgs);
 
             } catch (e){
                     console.log(e);
