@@ -85,7 +85,7 @@ exports.execute = function (req, res) {
         }
 
         if (decoded && decoded.inArguments && decoded.inArguments.length > 0) {
-            var decodedArgs = decoded.inArguments[1];
+            var decodedArgs = decoded.inArguments[2];
 
             async function go() {
             try{
