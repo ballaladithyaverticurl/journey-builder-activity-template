@@ -81,8 +81,9 @@ exports.execute = function (req, res) {
     async function go() {
       try{
         const accessToken = await functions.getAccessToken();
-        //console.log(accessToken);
-
+        console.log("Access Token is " + accessToken);
+        var payloadData = payoad['arguments'].execute.inArguments[2];
+        console.log("Payload data is" + payloadData);
       } catch (e){
             console.log(e);
       }
