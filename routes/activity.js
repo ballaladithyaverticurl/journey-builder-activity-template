@@ -78,18 +78,32 @@ exports.save = function (req, res) {
  */
 exports.execute = function (req, res) {
 
-    async function go() {
-      try{
-        const accessToken = await functions.getAccessToken();
-        console.log("Access Token is " + accessToken);
-        var payloadData = payoad['arguments'].execute.inArguments[2];
-        console.log("Payload data is" + payloadData);
-      } catch (e){
-            console.log(e);
-      }
-    }
-    go(); 
-    };
+    JWT(req.body, process.env.jwtSecret, (err, decoded) => {
+        if (err) {
+            console.error(err);
+            return res.status(401).end();
+        }
+
+        if (decoded && decoded.inArguments && decoded.inArguments.length > 0) {
+            var decodedArgs = decoded.inArguments[0];
+
+            async function go() {
+            try{
+                const accessToken = await functions.getAccessToken();
+                console.log("Access Token is " + accessToken);
+                console.log("Decoded Args are" + decodedArgs);
+
+            } catch (e){
+                    console.log(e);
+            }
+            }
+            go(); 
+        } else {
+            console.error('inArguments invalid.');
+            return res.status(400).end();
+        }
+    });
+};
     
 
 
