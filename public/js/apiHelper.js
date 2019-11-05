@@ -72,7 +72,7 @@ const qs = require('qs');
                 data: postBody
                   })
                   .then(function (response){
-                    console.log("The POST request response is " + response.data);
+                    console.log("The POST request response is " + response);
                   })
                   .catch(function(error){
                     reject(error);
