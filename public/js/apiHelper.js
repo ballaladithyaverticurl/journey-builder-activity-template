@@ -50,20 +50,18 @@ const qs = require('qs');
               headers['Authorization'] = 'Bearer ' + accessToken;
             }
             var postBody = {
-              "body":[{
+              "body":{
                 "messageSegments":[
                    {
                       "type":"Text",
                       "text":commentData
                    }]
-                 }],
-             "feedElementType":"FeedItem",
-             "subjectId":"0052v00000baw4GAAQ" 
+                 }
             };
 
             axios({
                 method: 'post',
-                url: 'https://ap15.salesforce.com/services/data/v46.0/chatter/feed-elements',
+                url: 'https://ap15.salesforce.com/services/data/v46.0/chatter/feed-elements/feedElementId/capabilities/comments/items',
                 headers: headers,
                 data: postBody
                   })
