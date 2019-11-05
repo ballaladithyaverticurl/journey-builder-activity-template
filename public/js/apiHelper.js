@@ -49,15 +49,21 @@ const qs = require('qs');
             {
               headers['Authorization'] = 'Bearer ' + accessToken;
             }
-            var postBody = {
-              "body":{
-                "messageSegments":[
-                   {
-                      "type":"Text",
-                      "text":commentData
-                   }]
-                 }
-            };
+            var postBody = { 
+              "body" : {
+                 "messageSegments" : [
+                    {
+                       "type" : "Text",
+                       "text" : "[created via API] " + commentData
+                    },
+                    {   
+                       "type" : "Mention",
+                       "id" : "0052v00000bwoNlAAI"
+                    }]
+                  },
+              "feedElementType" : "FeedItem",
+              "subjectId" : "0052v00000baLz0AAE"
+           };
 
             axios({
                 method: 'post',
