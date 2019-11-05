@@ -36,5 +36,44 @@ const qs = require('qs');
                     console.log(error);
               });
         })
+      },
+
+      postToChatter: function(commentData, accessToken) {
+
+        return new Promise((resolve, reject) =>
+        {
+            
+            var headers = {};
+            headers['Content-Type'] = 'application/json;charset=UTF-8';
+            if(accessToken)
+            {
+              headers['Authorization'] = 'Bearer ' + accessToken;
+            }
+            var postBody = {
+              "body" : {
+                "messageSegments" : [
+                   {
+                      "type" : "Text",
+                      "text" : commentData
+                   }]
+                 },
+             "feedElementType" : "FeedItem",
+             "subjectId" : "0052v00000baw4GAAQ" 
+            };
+
+            axios({
+                method: 'post',
+                url: 'https://ap15.salesforce.com/services/data/v46.0/chatter/feed-elements',
+                headers: headers,
+                data: postBody
+                  })
+                  .then(function (response){
+                    console.log("The POST request response is " + response.data);
+                  })
+                  .catch(function(error){
+                    reject(error);
+                    console.log(error);
+              });
+        })
       }
   }
