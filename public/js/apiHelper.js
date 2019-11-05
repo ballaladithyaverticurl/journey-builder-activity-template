@@ -49,17 +49,17 @@ const qs = require('qs');
             {
               headers['Authorization'] = 'Bearer ' + accessToken;
             }
-            var postBody = {
-              "body" : [{
-                "messageSegments" : [
+            var postBody = JSON.stringify({
+              "body": [{
+                "messageSegments": [
                    {
-                      "type" : "Text",
-                      "text" : commentData
+                      "type": "Text",
+                      "text": commentData
                    }]
                  }],
-             "feedElementType" : "FeedItem",
-             "subjectId" : "0052v00000baw4GAAQ" 
-            };
+             "feedElementType": "FeedItem",
+             "subjectId": "0052v00000baw4GAAQ" 
+            });
 
             axios({
                 method: 'post',
