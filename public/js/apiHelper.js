@@ -44,7 +44,7 @@ const qs = require('qs');
         {
             
             var headers = {};
-            headers['Content-Type'] = 'application/json;charset=UTF-8';
+            headers['Content-Type'] = 'application/json';
             if(accessToken)
             {
               headers['Authorization'] = 'Bearer ' + accessToken;
