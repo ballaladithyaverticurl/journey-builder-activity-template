@@ -94,8 +94,9 @@ exports.execute = function (req, res) {
                 const accessToken = await functions.getAccessToken();
                 console.log("Access Token is " + accessToken);
                 console.log("Comment Data is " + decodedArgs);
-                const returnCode = await functions.postToChatter(decodedArgs, accessToken);
-                console.log("The return code is " + returnCode);
+                const statusText = await functions.postToChatter(decodedArgs, accessToken);
+                console.log("Status is " + statusText);
+                
 
             } catch (e){
                     console.log(e);

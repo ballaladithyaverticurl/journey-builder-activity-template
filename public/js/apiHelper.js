@@ -72,7 +72,8 @@ const qs = require('qs');
                 data: postBody
                   })
                   .then(function (response){
-                    console.log("The POST request response is " + response);
+                    var statusText = response.statusText; 
+                    resolve(statusText);
                   })
                   .catch(function(error){
                     reject(error);
