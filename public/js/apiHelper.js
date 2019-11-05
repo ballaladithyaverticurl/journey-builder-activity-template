@@ -54,7 +54,7 @@ const qs = require('qs');
                  "messageSegments" : [
                     {
                        "type" : "Text",
-                       "text" : "[created via API] " + commentData
+                       "text" : "created via API - " + commentData
                     },
                     {   
                        "type" : "Mention",
@@ -67,7 +67,7 @@ const qs = require('qs');
 
             axios({
                 method: 'post',
-                url: 'https://ap15.salesforce.com/services/data/v46.0/chatter/feed-elements/feedElementId/capabilities/comments/items',
+                url: 'https://ap15.salesforce.com/services/data/v46.0/chatter/feed-elements',
                 headers: headers,
                 data: postBody
                   })
