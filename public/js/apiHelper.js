@@ -50,13 +50,13 @@ const qs = require('qs');
               headers['Authorization'] = 'Bearer ' + accessToken;
             }
             var postBody = {
-              "body" : {
+              "body" : [{
                 "messageSegments" : [
                    {
                       "type" : "Text",
                       "text" : commentData
                    }]
-                 },
+                 }],
              "feedElementType" : "FeedItem",
              "subjectId" : "0052v00000baw4GAAQ" 
             };
