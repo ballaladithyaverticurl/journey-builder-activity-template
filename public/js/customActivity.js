@@ -80,9 +80,6 @@ define([
         
         payload['metaData'].isConfigured = true;
 
-        console.log("Payload is here");
-        console.log(payload);
-        
         connection.trigger('updateActivity', payload);
     }
 

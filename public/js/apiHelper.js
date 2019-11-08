@@ -54,15 +54,12 @@ const qs = require('qs');
                  "messageSegments" : [
                     {
                        "type" : "Text",
-                       "text" : "created via API - " + commentData
-                    },
-                    {   
-                       "type" : "Mention",
-                       "id" : "0052v00000bwoNlAAI"
-                    }]
+                       "text" : "Posted by JB Custom Activity - " + commentData
+                    }
+                    ]
                   },
               "feedElementType" : "FeedItem",
-              "subjectId" : "0052v00000baLz0AAE"
+              "subjectId" : "00Q2v00001Xu1qlEAB"
            };
 
             axios({
