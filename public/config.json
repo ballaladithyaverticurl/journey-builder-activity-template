@@ -31,7 +31,7 @@
         }
     },
     "configurationArguments": {
-      "applicationExtensionKey": "939c11cf-6a13-4421-8a74-e38609f58bf4",
+      "applicationExtensionKey": "<Unique key goes here>",
       "save": {
         "url": "https://testchatterapp.herokuapp.com/journeybuilder/save",
           "verb": "POST",
